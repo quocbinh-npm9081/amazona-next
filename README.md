@@ -1,223 +1,182 @@
-# Build Nextjs ECommerce Website Like Amazon
+# DEMO :https://nextjs-tailwind-amazona-final.vercel.app/
 
-- Tech: Nextjs 13, Next Auth 4
-- UI: Tailwind, chart.js, react-chartjs
-- DB: MongoDB, Mongoose
-- Payment: PayPal, Stripe
-- Content Hosting: cloudinary
-- Deploy: Github, Vercel, MongoDB Atlas
+# Cao Quốc Bình - DH51903224
 
-![next amazona](/public/app.jpg)
+# WEBSITE THƯƠNG MẠI ĐIỆN TỬ:
 
-## Resources
+## PHẦN I: KHẢO SÁT HIỆN TRẠNG HỆ THỐNG:
 
-- Youtube Video : https://youtu.be/_IBlyR5mRzA
-- Demo Website :  https://next-tailwind-amazona.vercel.app
-- Source Code   :  https://github.com/basir/next-tailwind-amazona
-- Full Course: [basir.thinkific.com](https://basir.thinkific.com/courses/build-ecommerce-website-like-amazon-by-next-js?coupon=SAVE90)
+### 1. Tổng quan về Amazona:
+  Amazona là một cửa hàng lớn cung cấp sản phẩm chính hãng( mỹ phẩm, trang sức, túi xách, quần áo và thực phẩm chức năng,...) với chất lượng cao, đa dạng mẫu mã và giá cả hợp lý. 
+  
+  Cơ cấu cửa hàng bao gồm: Quản lý kiêm kế toán, bộ phận bán hàng và bộ phận nhập kho.
+  
+  Khách hàng của shop được chia làm 2 loại:
+  
+    -Khách hàng thường xuyên( khách hàng tiềm năng): những cửa hàng, đại lý... đặt hàng định kì.
+    
+    -Khách hàng không thường xuyên: Khách mua lẻ, có thể mua trực tiếp tại shop
+    
+  Nhu cầu mở rộng thị trường cũng như quảng bá sản phẩm và nâng cao chất lượng, tăng doanh thu là vấn đề đáng quan tâm của shop. Vì vậy quản lí của shop có mong muốn xây dựng 1 website giới thiệu sản phẩm và bán hàng trực tuyến, cũng như hỗ trợ khách hàng các thông tin cần thiết.
+  
+### 2. Tổng quan công nghệ:
+ 
+ **Với phương châm <sub>“Trải nghiệm tốt của khách hàng chính là khởi đầu cho sự gắn bó cùng HanaStore”</sub> , shop không ngừng nỗ lực nhằm mang lại sản phẩm cũng như sự phục vụ tốt nhất cho khách hàng.**
+ 
+ **Front-End:**
+ 
+ - NextJS: Next.js là một framework mã nguồn mở của React, được sử dụng để phát triển các ứng dụng web SSR (Server Side Rendering) và SSG (Static Site Generation). Nó cung cấp một số tính năng hữu ích để giúp xây dựng các ứng dụng web phức tạp một cách dễ dàng và nhanh chóng. Vai trò của Next.js trong thiết kế website thương mại điện tử là rất quan trọng. Với các tính năng như SSR và SSG, Next.js cho phép trang web được tạo ra nhanh hơn và tải nhanh hơn. Điều này rất quan trọng đối với các trang web thương mại điện tử, vì mỗi giây chờ đợi có thể khiến khách hàng bỏ qua sản phẩm của bạn và chuyển sang các trang web cạnh tranh. Next.js cũng cho phép việc tối ưu hóa SEO (Search Engine Optimization) thông qua SSR và SSG. Bằng cách cho phép trang web hiển thị nội dung chính ngay từ khi truy cập trang, SSR giúp các công cụ tìm kiếm như Google và Bing hiểu được nội dung của trang web và cải thiện thứ hạng tìm kiếm của trang web. SSG cũng cho phép tạo các trang web tĩnh chứa dữ liệu được xử lý trước, giúp giảm tải cho máy chủ và tăng tốc độ tải trang. Ngoài ra, Next.js còn hỗ trợ các tính năng khác như pre-fetching và code splitting, giúp tăng tốc độ tải trang và giảm tải cho máy chủ.
 
-## What you will learn
+***Tóm lại, Next.js là một công cụ rất hữu ích cho thiết kế các trang web thương mại điện tử. Nó cho phép xây dựng các trang web nhanh hơn, tải nhanh hơn và tối ưu hóa SEO tốt hơn.***
 
-- NextJS basics like setting up project, navigating between pages and data fetching
-- NextJS advanced topics like dynamic routing, image optimization,  SSG and SSR
-- Tailwind CSS framework to build responsive website using custom theme, animation and carousel
-- ReactJS including decomposing components, context API and hooks
-- Next Auth package to authenticate customers and admin users
-- MongoDB and Mongoose to save and retrieve data like products, orders and users
-- PayPal developer api to make online payment
-- Deploy web applications on servers like Vercel and Netlify
+**Back-End**
+ - NodeJS: Node.js là một nền tảng phát triển ứng dụng web được xây dựng trên nền tảng JavaScript, cho phép viết mã ứng dụng web chạy trên máy chủ (server-side). Node.js được thiết kế để có khả năng xử lý các yêu cầu từ nhiều người dùng cùng một lúc, đồng thời cũng cho phép xây dựng các ứng dụng web theo kiểu mã nguồn mở và có khả năng mở rộng. Vai trò của Node.js trong thiết kế website thương mại điện tử là rất quan trọng. Với Node.js, các lập trình viên có thể viết mã ứng dụng web server-side bằng ngôn ngữ JavaScript, giúp đơn giản hóa quá trình phát triển ứng dụng. Node.js cũng cho phép xử lý các yêu cầu đồng thời và có khả năng mở rộng, giúp ứng dụng web của bạn có thể xử lý hàng ngàn yêu cầu từ người dùng cùng một lúc. Node.js cũng cho phép phát triển các ứng dụng web theo kiểu mã nguồn mở, giúp cho cộng đồng lập trình viên có thể đóng góp vào các dự án, tạo nên một cộng đồng lớn và phát triển các ứng dụng web đa dạng và chất lượng cao. Ngoài ra, Node.js còn hỗ trợ nhiều thư viện và module cho phép các lập trình viên xây dựng các ứng dụng web có tính năng phức tạp và hiệu quả hơn. Ví dụ như Express.js, một framework phổ biến để xây dựng các ứng dụng web server-side.
 
-## Full Course
+***Tóm lại, Node.js là một công nghệ rất quan trọng trong thiết kế các trang web thương mại điện tử. Nó giúp đơn giản hóa quá trình phát triển ứng dụng, có khả năng xử lý nhiều yêu cầu đồng thời và mở rộng được, và hỗ trợ nhiều thư viện và module để xây dựng các ứng dụng web phức tạp.***
+ 
+  - MongoDB: MongoDB là một hệ thống cơ sở dữ liệu phi quan hệ (NoSQL) mã nguồn mở, được thiết kế để lưu trữ và truy vấn các tài liệu dưới dạng đối tượng JSON. MongoDB có khả năng xử lý dữ liệu khối lượng lớn, cung cấp tính linh hoạt và có thể mở rộng để đáp ứng nhu cầu của các ứng dụng web thương mại điện tử.
+ Một số ưu điểm của MongoDB trong thiết kế website thương mại điện tử bao gồm:
 
-Get this course by 90% discount on Thinkific:
-https://basir.thinkific.com/courses/build-ecommerce-website-like-amazon-by-next-js?coupon=SAVE90
+    -Dễ dàng mở rộng: MongoDB có khả năng mở rộng dữ liệu và khả năng xử lý tốt các tải cao. Điều này giúp cho các ứng dụng web thương mại điện tử có thể mở rộng dữ liệu và tải lên nhiều hơn mà không gặp phải những trở ngại về hiệu suất.
 
-## Run Locally
+    -Tính linh hoạt: MongoDB không có cấu trúc cố định cho các bảng và cột giống như các hệ quản trị cơ sở dữ liệu quan hệ truyền thống. Thay vào đó, nó cho phép các nhà phát triển lưu trữ dữ liệu dưới dạng tài liệu JSON, giúp cho việc tạo và thay đổi các mẫu dữ liệu trở nên dễ dàng hơn.
 
-1. Clone repo
+    -Tốc độ truy vấn nhanh: MongoDB cho phép các truy vấn phức tạp và đa dạng về mặt nội dung và kích thước, cung cấp hiệu suất tốt hơn so với các hệ quản trị cơ sở dữ liệu quan hệ truyền thống.
 
-   ```shell
-    $ git clone git@github.com:basir/next-tailwind-amazona.git
-    $ cd next-tailwind-amazona
-   ```
+***Tóm lại, MongoDB là một hệ quản trị cơ sở dữ liệu phi quan hệ phổ biến và có nhiều ưu điểm trong thiết kế website thương mại điện tử. Nó có khả năng mở rộng, tính linh hoạt, tốc độ truy vấn nhanh và hỗ trợ tốt cho các ứng dụng web***
 
-2. Create .env File
+## PHẦN II: MỤC TIÊU XÂY DỰNG WEBSITE:
 
-   - duplicate .env.example and rename it to .env
 
-3. Setup MongoDB
+### 1.Đối tượng của Website được xây dựng phục vụ hai đối tượng chính là Admin( nhà quản trị) và Khách hàng với các chức năng sau:
 
-   - Local MongoDB
-   - Install it from [here](https://www.mongodb.com/try/download/community)
-   - In .env file update MONGODB_URI=mongodb://localhost/amazona
-   - OR Atlas Cloud MongoDB
-   - Create database at [https://cloud.mongodb.com](https://cloud.mongodb.com)
-   - In .env file update MONGODB_URI=mongodb+srv://your-db-connection
+**Admin:**
+  
+  -Đăng nhập Website Xem, cập nhật, xoá thông tin sản phẩm.
 
-4. Install and Run
+  -Quản lí đơn đặt hàng Xem, trả lời ý kiến, góp ý và phản hồi của khách hàng hoặc xoá các thông tin đó từ khách hàng.
 
-   ```
-   $ npm install
-   $ npm run dev
-   ```
+  -Xem, xoá các thông tin của khách hàng nhưng không được quyền thay đổi thông tin đó.
 
-5. Seed Data
+  -Cập nhật tin tức
 
-   - Run this on browser: http://localhost:5000/api/seed
-   - It returns admin email and password and 6 sample products
+**Khách hàng:**
 
-6. Admin Login
+Guest: Khách viếng thăm
 
-   - Run http://localhost:3000/login
-   - Enter admin email and password and click Login
+  -Xem thông tin sản phẩm cũng như các tin tức khác
 
-## Lessons
+  -Đăng kí thành viên
 
-1. Introduction
-2. Install Tools
-3. Create Next App
-4. Publish to Github
-5. Create Website Layout
-   1. create layout component
-   2. add header
-   3. add main section
-   4. add footer
-   5. add tailwind classes
-6. List Products
-   1. add data.js
-   2. add images
-   3. render products
-7. Create Product Details
-   1. create product page
-   2. create 3 columns
-   3. show image in first column
-   4. show product info in second column
-   5. show add to cart action on third column
-   6. add styles
-8. Handle Add To Cart
-   1. define react context
-   2. define cart items state
-   3. create addd to cart action
-   4. add reducer
-   5. create store provider
-   6. handle add to cart button
-9. Create Cart Page
-   1. create cart.js
-   2. use context to get cart items
-   3. list items in cart items
-   4. redirect to cart screen after add to cart
-10. Update Quantity In The Cart
-    1. add select box for quantity
-    2. handle select box change
-11. Save Cart Items
-    1. install js-cookie package
-    2. save and retreive cart items in cookies
-12. Create Login Form
-    1. install react hook form
-    2. create input boxes
-    3. add login button
-13. Connect To MongoDB
-    1. install mongoose
-    2. install mongodb or use mongodb atlas
-    3. save connection url in .env file
-    4. create db utils file
-    5. create sample users
-14. Create Login API
-    1. install next-auth
-    2. create nextauth.js
-    3. implement signin
-    4. use signin in login form
-15. Add User Menu
-    1. check user authentication
-    2. install headlessui
-    3. show user menu
-16. Create Shipping Screen
-    1. display address fields
-    2. save address in context
-17. Create Payment Method Screen
-    1. dispaly payment methods
-    2. save payment method in context
-18. Seed sample products
-    1. create product model in mongoose
-    2. insert sample products to mongodb
-19. Load Products MongoDB
-    1. load products in home page from mongodb
-    2. load products in product page from mongodb
-    3. use product api to check count in stock in add to cart
-20. Create Place Order Screen
-    1. display shipping address
-    2. display payment method
-    3. display order items
-    4. implment create order
-21. Create Order Screen
-    1. implement backend api for order details
-    2. load order data from backend
-    3. display order details
-22. Create Register Screen
-    1. add signup api
-    2. create register page
-    3. call api on form submit
-23. Pay Order By PayPal
-    1. add paypal button
-    2. handle payment
-    3. create backend api
-    4. update order state
-24. Create Order History Screen
-    1. create my order api
-    2. create order history component
-    3. fetch orders and display them
-25. Publish On Vercel
-    1. create vercel account
-    2. connect to github
-    3. set next auth and mongodb db in env vars
-    4. push code to github
-26. Update User Profile
-    1. create profile screen
-    2. show user info
-    3. handle update user info
-27. Create Admin Dashboard
-    1. Create Admin Menu
-    2. create dashboard screen
-    3. Implement admin summary api
-28. List Orders For Admin
-    1. create orders page
-    2. create orders api
-    3. use api in page
-29. Deliver Order For Admin
-    1. create deliver api
-    2. add deliver button
-    3. implement click handler
-30. List Products For Admin
-    1. create products page
-    2. create products api
-    3. use api in page
-31. Create Product Edit Page
-    1. create edit page
-    2. create api for product
-    3. show product data in form
-32. Upload Product Image
-    1. create cloudinary account
-    2. get cloudinary keys
-    3. create upload api
-    4. upload files in edit page
-33. Create And Delete Products
-    1. add create product button
-    2. build new product api
-    3. add handler for delete
-    4. implement delete api
-34. List Users For Admin
-    1. create users page
-    2. create users api
-    3. use api in page
-35. Add Carousel
-    1. create featured products
-    2. feed carousel data
-    3. show popular products
-36. Create Search Page
-    1. create filters
-    2. list products
-    3. show filters
+User:
 
-```
+  -Đã có tài khoản
 
-```
+  -Có quyền đăng nhập, đăng xuất, đổi mật khẩu
+
+-Đặt mua sản phẩm
+
+2.Đặc điểm:
+
+Xây dựng một hệ thống bán hàng trực tuyến đơn giản, thân thiện, dễ sử dụng, cho phép khác hàng xem thông tin và đặt hàng qua mạng, người quản trị quản lý các thông tin về sản phẩm cũng như người dùng
+
+Website được thiết kế với
+
+  -Giao diện hài hoà, thân thiện, giúp người dùng dễ dàng sử dụng.
+
+  -Trang chủ sẽ hiển thị danh sách các sản phẩm mới nhất và bán chạy nhất giúp cho người dùng có thể dễ dàng hơn trong việc tìm kiếm.
+
+  -Khách hàng có thể dễ dàng tìm thấy thông tin chi tiết các loại sản phẩm mà họ quan tâm.
+
+  -Khách hàng có thể chọn mua các loại sản phẩm mà họ cần dựa trên khả năng tài chính và chức năng cần thiết bằng cách thêm vào giỏ hàng
+
+  -Có chức năng đăng ký, đăng nhập.Khách hàng có thể gửi ý kiến phản hồi, góp ý đến Website để góp phần làm Website thêm phong phú và phát triển.Xây dựng một hệ thống bán sản phẩm trực tuyến đơn giản, thân thiện, dễ sử dụng, cho phép khác hàng xem thông tin và đặt hàng qua mạng, người quản trị quản lý các thông tin về sản phẩm cũng như người dùng.
+
+**Các module:**
+
+*Module sản phẩm:*
+
+Hiển thị thông tin và phân loại sản phẩm trong gian hàng ảo. Sản phẩm hiển thị lên website sẽ được hiển thị đầy đủ thông tin về sản phẩm đó như: hình ảnh, tên sản phẩm, đặc điểm nổi bật của sản phẩm,giá,..
+
+*Module giỏ hàng:*
+
+Khi tham khảo đầy đủ thông tin về sản phẩm khách hàng có thể đặt mua sản phẩm ngay tại Website thông qua chức năng giỏ hàng mà không cần phải đến địa điểm giao dịch, giỏ hàng được làm mô phỏng như giỏ hàng trong thực tế có thể thêm, bớt, thanh toán tiền các sản phẩm đã mua. Khi chọn thanh toán giỏ hàng khách hàng phải ghi đầy đủ các thông tin cá nhân, thông tin này được hệ thống lưu trữ và xử lý.
+
+*Module đăng ký thành viên và đăng nhập hệ thống*
+
+Mỗi khách hàng giao dịch tại Website sẽ được quyền đăng ký môt tài khoản riêng. Tài khoản này sẽ được sử dụng khi hệ thống yêu cầu. Một tài khoản do khách hàng đăng ký sẽ lưu trữ các thông tin cá nhân của khách hàng.
+
+*Module tìm kiếm sản phẩm, tin tức, tư vấn Khách hàng sẽ được cung cấp chức năng tìm kiếm trên Website.*
+
+- Trang tin tức: Tư vấn cho khách hàng...
+- Trang giới thiệu: Giới thiệu các thông tin về cửa hàng, phương châm bán hàng...
+- Trang liên hệ: Khách hàng có thể liên hệ vớinhân viên bán hàng về các thắc mắc, ý kiến của mình.
+
+*Module quản lý sản phẩm, đơn hàng:*
+
+Người quản trị có thể cập nhật thông tin các mặt hàng, loại hàng, quản lý thông tin đơn hàng.
+
+*Module khác*
+
+## PHẦN III: PHÂN TÍCH HỆ THỐNG:
+
+### 1.Các thông tin đầu ra đầu vào của hệ thống
+
+**Thông tin đầu vào:**
+
+  -Thông tin khách hàng
+
+  -Thông tin sản phẩm
+
+  -Thông tin về cửa hàng và các bài viết liên quan
+
+  -Thông tin quảng cáo
+
+  -Các phản hồi
+
+  -Đơn đặt hàng
+
+**Thông tin đầu ra:**
+
+  -Chi tiết về sản phẩm
+
+  -Hóa đơn
+
+  -Các phản hồi
+
+### 2.Tác nhân:
+
+  -Khách hàng: User và Guest( Khách viếng thăm)
+
+  -Admin: Người quản lý
+
+<img width="406" alt="image" src="https://user-images.githubusercontent.com/68917523/225036534-3e8e09e5-0e79-46fb-8ac4-779575a3ccd3.png">
+
+### 3.Biểu đồ Usecase tổng quát của hệ thống:
+
+<img width="429" alt="image" src="https://user-images.githubusercontent.com/68917523/225037681-6dc8b22e-e15b-4630-87ca-7ba8be7ff633.png">
+
+### 4.Biểu đồ tuần tự:
+
+**a.Biểu đồ tuần tự cho use case đăng nhập**
+
+<img width="353" alt="image" src="https://user-images.githubusercontent.com/68917523/225038179-654904d6-32c3-40f3-ae7d-8546c515c1d3.png">
+
+**b.Biểu đồ tuần tự cho Use case thêm giỏ hàng**
+
+<img width="369" alt="image" src="https://user-images.githubusercontent.com/68917523/225038464-823758f9-be27-43c3-b335-7fc313ec3398.png">
+
+**c.Biểu đồ tuần tự Use case gửi đơn đặt hàng**
+
+<img width="362" alt="image" src="https://user-images.githubusercontent.com/68917523/225038998-422e170e-81e9-4b00-a24f-64f9b6e6db5a.png">
+
+### 5.Biểu đồ trạng thái 
+
+**Biểu đồ trạng thái của đối tượng Giỏ hàng**
+
+<img width="388" alt="image" src="https://user-images.githubusercontent.com/68917523/225039484-5a1142ea-1d95-4425-bd8b-310adb3b6709.png">
+
+### 6.Biểu đồ lớp phân tích:
+
+<img width="348" alt="image" src="https://user-images.githubusercontent.com/68917523/225039943-68353260-b6ce-4210-a3d7-67efdca843db.png">
+
